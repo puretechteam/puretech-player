@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "puretech-player"
+version = "0.1.0"
+description = "Plays chunked recordings as one timeline: FFmpeg decoders, WASAPI sound, Direct3D 11 drawing in a Tk frame."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Pure Tech" }]
+requires-python = ">=3.10"
+dependencies = []
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Topic :: Multimedia :: Video :: Display",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+measure = ["psutil>=5"]
+
+[project.urls]
+Homepage = "https://github.com/puretechteam/puretech-player"
+
+[tool.setuptools]
+packages = ["puretech_player"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

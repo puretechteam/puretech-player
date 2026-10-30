@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+out/
+
+# Test and tool caches
+.pytest_cache/
+.cache/
+.coverage
+htmlcov/
+
+# Measurement scratch (generated sample clips, clip exports)
+work/
+*.log
+
+# Secrets
+.env*
+!.env.example
+*.key
+*.pem
+
+# Editor / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

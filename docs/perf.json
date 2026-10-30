@@ -1,0 +1,479 @@
+{
+ "ffmpeg": "ffmpeg version 9.0.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+ "machine": {
+  "cpus": 16,
+  "core_ghz": 3.63
+ },
+ "seconds": 60,
+ "files": {
+  "av1-1080p30": {
+   "ffplay": {
+    "first_frame": {
+     "launch_to_picture_ms": 348.5,
+     "runs": 5
+    },
+    "seek": {
+     "n": 10,
+     "of": 10,
+     "median_ms": 49.9,
+     "p95_ms": 64.6
+    },
+    "steady": {
+     "cpu_pct_of_one_core": 23.0,
+     "cpu_pct_ticks": 7.7,
+     "cpu_pct_of_machine": 1.44,
+     "ram_mb_mean": 171.0,
+     "ram_mb_peak": 171.5,
+     "private_mb_mean": 126.5,
+     "dropped": 0,
+     "samples": 60
+    }
+   },
+   "ours": {
+    "first_frame": {
+     "launch_to_picture_ms": 327.4,
+     "runs": 5,
+     "open_to_first_frame_ms": 175.4
+    },
+    "seek": {
+     "n": 10,
+     "of": 10,
+     "median_ms": 39.1,
+     "p95_ms": 77.5,
+     "exact_frame_median_ms": 31.5,
+     "exact_frame_p95_ms": 73.9,
+     "keyframe_preview_median_ms": 71.9
+    },
+    "steady": {
+     "cpu_pct_of_one_core": 16.0,
+     "cpu_pct_ticks": 16.6,
+     "cpu_pct_of_machine": 1.0,
+     "ram_mb_mean": 247.9,
+     "ram_mb_peak": 248.6,
+     "private_mb_mean": 130.7,
+     "dropped": 0,
+     "samples": 60,
+     "python_growth_mb_mean": 46.8,
+     "decoders_mb_mean": 157.2,
+     "added_ram_mb_mean": 204.0,
+     "added_ram_mb_peak": 204.7,
+     "python_baseline_mb": 43.9,
+     "added_private_mb_mean": 111.8,
+     "shown": 1902,
+     "audio_underruns": 0
+    }
+   }
+  },
+  "hevc-1080p30": {
+   "ffplay": {
+    "first_frame": {
+     "launch_to_picture_ms": 352.7,
+     "runs": 5
+    },
+    "seek": {
+     "n": 9,
+     "of": 10,
+     "median_ms": 59.0,
+     "p95_ms": 75.3
+    },
+    "steady": {
+     "cpu_pct_of_one_core": 28.6,
+     "cpu_pct_ticks": 8.5,
+     "cpu_pct_of_machine": 1.79,
+     "ram_mb_mean": 233.8,
+     "ram_mb_peak": 234.1,
+     "private_mb_mean": 189.3,
+     "dropped": 0,
+     "samples": 60
+    }
+   },
+   "ours": {
+    "first_frame": {
+     "launch_to_picture_ms": 353.3,
+     "runs": 5,
+     "open_to_first_frame_ms": 172.2
+    },
+    "seek": {
+     "n": 10,
+     "of": 10,
+     "median_ms": 53.7,
+     "p95_ms": 111.4,
+     "exact_frame_median_ms": 44.7,
+     "exact_frame_p95_ms": 103.0,
+     "keyframe_preview_median_ms": 100.2
+    },
+    "steady": {
+     "cpu_pct_of_one_core": 24.1,
+     "cpu_pct_ticks": 25.2,
+     "cpu_pct_of_machine": 1.51,
+     "ram_mb_mean": 268.6,
+     "ram_mb_peak": 268.9,
+     "private_mb_mean": 151.5,
+     "dropped": 0,
+     "samples": 60,
+     "python_growth_mb_mean": 47.3,
+     "decoders_mb_mean": 178.2,
+     "added_ram_mb_mean": 225.5,
+     "added_ram_mb_peak": 225.7,
+     "python_baseline_mb": 43.2,
+     "added_private_mb_mean": 132.9,
+     "shown": 1902,
+     "audio_underruns": 0
+    }
+   }
+  },
+  "vvc-1080p30": {
+   "ffplay": {
+    "first_frame": {
+     "launch_to_picture_ms": 482.2,
+     "runs": 5
+    },
+    "seek": {
+     "n": 10,
+     "of": 10,
+     "median_ms": 182.0,
+     "p95_ms": 193.1
+    },
+    "steady": {
+     "cpu_pct_of_one_core": 107.9,
+     "cpu_pct_ticks": 83.2,
+     "cpu_pct_of_machine": 6.74,
+     "ram_mb_mean": 755.9,
+     "ram_mb_peak": 784.3,
+     "private_mb_mean": 712.7,
+     "dropped": 1,
+     "samples": 60
+    }
+   },
+   "ours": {
+    "first_frame": {
+     "launch_to_picture_ms": 312.5,
+     "runs": 5,
+     "open_to_first_frame_ms": 200.2
+    },
+    "seek": {
+     "n": 10,
+     "of": 10,
+     "median_ms": 230.2,
+     "p95_ms": 260.2,
+     "exact_frame_median_ms": 250.8,
+     "exact_frame_p95_ms": 307.0,
+     "keyframe_preview_median_ms": 223.1
+    },
+    "steady": {
+     "cpu_pct_of_one_core": 52.0,
+     "cpu_pct_ticks": 50.1,
+     "cpu_pct_of_machine": 3.25,
+     "ram_mb_mean": 867.3,
+     "ram_mb_peak": 893.3,
+     "private_mb_mean": 750.5,
+     "dropped": 0,
+     "samples": 60,
+     "python_growth_mb_mean": 47.5,
+     "decoders_mb_mean": 775.9,
+     "added_ram_mb_mean": 823.4,
+     "added_ram_mb_peak": 849.4,
+     "python_baseline_mb": 43.9,
+     "added_private_mb_mean": 731.6,
+     "shown": 1903,
+     "audio_underruns": 0
+    }
+   }
+  },
+  "h264-1080p30": {
+   "ffplay": {
+    "first_frame": {
+     "launch_to_picture_ms": 383.1,
+     "runs": 5
+    },
+    "seek": {
+     "n": 10,
+     "of": 10,
+     "median_ms": 64.3,
+     "p95_ms": 70.6
+    },
+    "steady": {
+     "cpu_pct_of_one_core": 21.9,
+     "cpu_pct_ticks": 6.5,
+     "cpu_pct_of_machine": 1.37,
+     "ram_mb_mean": 209.8,
+     "ram_mb_peak": 210.1,
+     "private_mb_mean": 165.5,
+     "dropped": 0,
+     "samples": 60
+    }
+   },
+   "ours": {
+    "first_frame": {
+     "launch_to_picture_ms": 340.5,
+     "runs": 5,
+     "open_to_first_frame_ms": 184.0
+    },
+    "seek": {
+     "n": 10,
+     "of": 10,
+     "median_ms": 52.4,
+     "p95_ms": 68.0,
+     "exact_frame_median_ms": 38.6,
+     "exact_frame_p95_ms": 60.4,
+     "keyframe_preview_median_ms": 59.1
+    },
+    "steady": {
+     "cpu_pct_of_one_core": 16.9,
+     "cpu_pct_ticks": 16.7,
+     "cpu_pct_of_machine": 1.06,
+     "ram_mb_mean": 260.1,
+     "ram_mb_peak": 260.4,
+     "private_mb_mean": 142.6,
+     "dropped": 0,
+     "samples": 60,
+     "python_growth_mb_mean": 47.0,
+     "decoders_mb_mean": 169.0,
+     "added_ram_mb_mean": 216.1,
+     "added_ram_mb_peak": 216.4,
+     "python_baseline_mb": 44.0,
+     "added_private_mb_mean": 123.5,
+     "shown": 1901,
+     "audio_underruns": 0
+    }
+   }
+  },
+  "av1-720p15": {
+   "ffplay": {
+    "first_frame": {
+     "launch_to_picture_ms": 345.2,
+     "runs": 5
+    },
+    "seek": {
+     "n": 10,
+     "of": 10,
+     "median_ms": 40.9,
+     "p95_ms": 53.2
+    },
+    "steady": {
+     "cpu_pct_of_one_core": 7.2,
+     "cpu_pct_ticks": 5.6,
+     "cpu_pct_of_machine": 0.45,
+     "ram_mb_mean": 114.0,
+     "ram_mb_peak": 114.2,
+     "private_mb_mean": 69.4,
+     "dropped": 0,
+     "samples": 60
+    }
+   },
+   "ours": {
+    "first_frame": {
+     "launch_to_picture_ms": 317.9,
+     "runs": 5,
+     "open_to_first_frame_ms": 183.0
+    },
+    "seek": {
+     "n": 10,
+     "of": 10,
+     "median_ms": 28.9,
+     "p95_ms": 39.6,
+     "exact_frame_median_ms": 21.2,
+     "exact_frame_p95_ms": 37.6,
+     "keyframe_preview_median_ms": 31.0
+    },
+    "steady": {
+     "cpu_pct_of_one_core": 5.9,
+     "cpu_pct_ticks": 5.0,
+     "cpu_pct_of_machine": 0.37,
+     "ram_mb_mean": 201.4,
+     "ram_mb_peak": 201.6,
+     "private_mb_mean": 84.1,
+     "dropped": 0,
+     "samples": 60,
+     "python_growth_mb_mean": 38.8,
+     "decoders_mb_mean": 119.2,
+     "added_ram_mb_mean": 157.9,
+     "added_ram_mb_peak": 158.1,
+     "python_baseline_mb": 43.5,
+     "added_private_mb_mean": 65.3,
+     "shown": 951,
+     "audio_underruns": 0
+    }
+   }
+  },
+  "hevc-720p15": {
+   "ffplay": {
+    "first_frame": {
+     "launch_to_picture_ms": 346.9,
+     "runs": 5
+    },
+    "seek": {
+     "n": 10,
+     "of": 10,
+     "median_ms": 53.3,
+     "p95_ms": 69.2
+    },
+    "steady": {
+     "cpu_pct_of_one_core": 8.2,
+     "cpu_pct_ticks": 4.7,
+     "cpu_pct_of_machine": 0.51,
+     "ram_mb_mean": 141.2,
+     "ram_mb_peak": 141.5,
+     "private_mb_mean": 96.7,
+     "dropped": 0,
+     "samples": 60
+    }
+   },
+   "ours": {
+    "first_frame": {
+     "launch_to_picture_ms": 316.2,
+     "runs": 5,
+     "open_to_first_frame_ms": 181.6
+    },
+    "seek": {
+     "n": 10,
+     "of": 10,
+     "median_ms": 36.4,
+     "p95_ms": 54.2,
+     "exact_frame_median_ms": 28.0,
+     "exact_frame_p95_ms": 49.0,
+     "keyframe_preview_median_ms": 43.5
+    },
+    "steady": {
+     "cpu_pct_of_one_core": 8.3,
+     "cpu_pct_ticks": 8.6,
+     "cpu_pct_of_machine": 0.52,
+     "ram_mb_mean": 212.8,
+     "ram_mb_peak": 212.9,
+     "private_mb_mean": 95.5,
+     "dropped": 0,
+     "samples": 60,
+     "python_growth_mb_mean": 38.1,
+     "decoders_mb_mean": 130.5,
+     "added_ram_mb_mean": 168.6,
+     "added_ram_mb_peak": 168.7,
+     "python_baseline_mb": 44.2,
+     "added_private_mb_mean": 76.4,
+     "shown": 951,
+     "audio_underruns": 0
+    }
+   }
+  },
+  "vvc-720p15": {
+   "ffplay": {
+    "first_frame": {
+     "launch_to_picture_ms": 391.6,
+     "runs": 5
+    },
+    "seek": {
+     "n": 10,
+     "of": 10,
+     "median_ms": 94.0,
+     "p95_ms": 111.5
+    },
+    "steady": {
+     "cpu_pct_of_one_core": 26.3,
+     "cpu_pct_ticks": 10.2,
+     "cpu_pct_of_machine": 1.65,
+     "ram_mb_mean": 415.8,
+     "ram_mb_peak": 429.6,
+     "private_mb_mean": 371.4,
+     "dropped": 0,
+     "samples": 60
+    }
+   },
+   "ours": {
+    "first_frame": {
+     "launch_to_picture_ms": 320.2,
+     "runs": 5,
+     "open_to_first_frame_ms": 190.3
+    },
+    "seek": {
+     "n": 10,
+     "of": 10,
+     "median_ms": 112.1,
+     "p95_ms": 135.9,
+     "exact_frame_median_ms": 109.4,
+     "exact_frame_p95_ms": 146.0,
+     "keyframe_preview_median_ms": 103.3
+    },
+    "steady": {
+     "cpu_pct_of_one_core": 14.6,
+     "cpu_pct_ticks": 12.7,
+     "cpu_pct_of_machine": 0.91,
+     "ram_mb_mean": 499.0,
+     "ram_mb_peak": 512.3,
+     "private_mb_mean": 381.2,
+     "dropped": 0,
+     "samples": 60,
+     "python_growth_mb_mean": 38.0,
+     "decoders_mb_mean": 417.1,
+     "added_ram_mb_mean": 455.1,
+     "added_ram_mb_peak": 468.4,
+     "python_baseline_mb": 43.9,
+     "added_private_mb_mean": 362.2,
+     "shown": 951,
+     "audio_underruns": 0
+    }
+   }
+  },
+  "h264-720p15": {
+   "ffplay": {
+    "first_frame": {
+     "launch_to_picture_ms": 336.4,
+     "runs": 5
+    },
+    "seek": {
+     "n": 10,
+     "of": 10,
+     "median_ms": 58.4,
+     "p95_ms": 65.3
+    },
+    "steady": {
+     "cpu_pct_of_one_core": 6.7,
+     "cpu_pct_ticks": 7.1,
+     "cpu_pct_of_machine": 0.42,
+     "ram_mb_mean": 134.2,
+     "ram_mb_peak": 134.5,
+     "private_mb_mean": 89.8,
+     "dropped": 0,
+     "samples": 60
+    }
+   },
+   "ours": {
+    "first_frame": {
+     "launch_to_picture_ms": 303.3,
+     "runs": 5,
+     "open_to_first_frame_ms": 182.9
+    },
+    "seek": {
+     "n": 10,
+     "of": 10,
+     "median_ms": 32.8,
+     "p95_ms": 41.1,
+     "exact_frame_median_ms": 24.6,
+     "exact_frame_p95_ms": 33.6,
+     "keyframe_preview_median_ms": 33.2
+    },
+    "steady": {
+     "cpu_pct_of_one_core": 6.0,
+     "cpu_pct_ticks": 5.5,
+     "cpu_pct_of_machine": 0.38,
+     "ram_mb_mean": 210.0,
+     "ram_mb_peak": 210.3,
+     "private_mb_mean": 92.6,
+     "dropped": 0,
+     "samples": 60,
+     "python_growth_mb_mean": 38.6,
+     "decoders_mb_mean": 127.3,
+     "added_ram_mb_mean": 165.9,
+     "added_ram_mb_peak": 166.2,
+     "python_baseline_mb": 44.1,
+     "added_private_mb_mean": 73.7,
+     "shown": 952,
+     "audio_underruns": 0
+    }
+   }
+  }
+ },
+ "size": {
+  "ffplay_exe_bytes": 15865344,
+  "package_py_bytes": 130823,
+  "package_zip_bytes": 42503
+ }
+}
