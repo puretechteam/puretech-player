@@ -185,7 +185,8 @@ grid.play(); grid.seek(t); grid.set_speed(4); grid.step(1); grid.set_audio(1)
 ```
 
 All tiles follow one clock: the sound tile's while it makes sound, a monotonic one otherwise. When every tile is in a
-gap, the grid jumps to the next footage.
+gap, the grid jumps to the next footage. `grid.step()` steps every tile; once the sound tile (or the first tile)
+shows its new frame, `grid.position` is that frame's time and `play()` goes on from there.
 
 ### Clips
 

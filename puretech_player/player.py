@@ -33,6 +33,7 @@ class Player:
         self.skip_gaps, self.threads = skip_gaps, threads
         self.on_time = None          # on_time(wall) after each shown frame and each seek
         self.on_state = None         # on_state(state, info dict)
+        self._on_shown = None        # _on_shown(player, wall) after each shown frame (Grid follows steps)
         self.state = IDLE
         self.speed = 1.0
         self.pol = policy(1.0)
@@ -492,6 +493,8 @@ class Player:
         if self._gap or self.state in (LOADING, GAP):
             self._gap = None
             self._set_state(PLAYING if self._playing else PAUSED)
+        if self._on_shown:
+            self._on_shown(self, frame.wall)
         self._tell_time(frame.wall)
 
     def _ended(self):

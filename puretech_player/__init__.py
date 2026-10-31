@@ -3,7 +3,7 @@
 """Pure Tech Player: plays chunked recordings (a folder of HH-MM-SS files per day) as one timeline, with FFmpeg
 decoder processes, WASAPI sound and GDI drawing into a Tk frame. Pure Python on ctypes; no other packages."""
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 from .timeline import Chunk, Source, Spot, fmt_wall, parse_start
 from .policy import policy, SPEEDS, MIN_SPEED, MAX_SPEED

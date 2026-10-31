@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "puretech-player"
-version = "0.1.0"
+version = "0.1.1"
 description = "Plays chunked recordings as one timeline: FFmpeg decoders, WASAPI sound, Direct3D 11 drawing in a Tk frame."
 readme = "README.md"
 license = { text = "MIT" }

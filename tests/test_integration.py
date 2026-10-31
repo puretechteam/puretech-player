@@ -404,3 +404,51 @@ def test_grid_keeps_tiles_on_one_clock(camera, tmp_path):
         assert abs(a - b) < 0.1 and a > T0 + 3.5
     finally:
         grid.close()
+
+def test_grid_step_moves_the_clock_to_the_stepped_frame_and_play_resumes_there(camera, tmp_path):
+    second = str(tmp_path / "cam2")
+    for off in (1, 4):
+        day, clock = stamp(T0 + off)
+        make_clip(os.path.join(second, day, f"{clock}.mp4"), 3, "h264", 300)
+    seen, lock = [], threading.Lock()
+    def frame(f):
+        if not f.preview:
+            with lock:
+                seen.append(f.wall)
+    pres = [NullPresenter(160, 90, on_frame=frame), NullPresenter(160, 90)]
+    grid = Grid([camera[0], second], ffmpeg=FFMPEG, presenters=pres, audio=None)
+
+    def shown_after(n):
+        assert wait_for(lambda: len(seen) > n, 5), "no frame came"
+        with lock:
+            return seen[-1]
+
+    def follows(wall):
+        # the clock is set once the step lands, just after the frame is drawn
+        assert wait_for(lambda: abs(grid.position - wall) < 1e-3, 2), \
+            f"grid at {grid.position - T0:.3f}, frame shown at {wall - T0:.3f}"
+
+    try:
+        assert wait_for(lambda: seen, 5)
+        grid.seek(T0 + 3.0 - 3 * DT)          # three frames before the chunk boundary at 3 s
+        assert wait_for(lambda: seen and abs(seen[-1] - (T0 + 3.0 - 3 * DT)) < 1e-3, 5)
+        n = len(seen)
+        walls = []
+        for direction in (1, 1, 1, 1, 1, 1, -1, -1):  # across the boundary and back over it
+            grid.step(direction)
+            wall = shown_after(n)
+            n = len(seen)
+            follows(wall)
+            walls.append(wall - T0)
+        expected = [3.0 + k * DT for k in (-2, -1, 0, 1, 2, 3, 2, 1)]
+        assert walls == pytest.approx(expected, abs=1e-3)
+        stepped = T0 + 3.0 + DT
+        grid.play()
+        assert stepped - 1e-3 <= grid.position < stepped + 0.1    # 0.1.0 went on from the seek, 4 frames earlier
+        first = shown_after(n)
+        assert first == pytest.approx(stepped + DT, abs=1e-3)      # the next frame, not one already passed
+        time.sleep(0.5)
+        grid.pause()
+        assert grid.position == pytest.approx(stepped + 0.5, abs=0.15)
+    finally:
+        grid.close()

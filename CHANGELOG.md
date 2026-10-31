@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1 - 2026-10-30
+
+- Fixed: after `Grid.step()`, `Grid.position` stayed at the time the grid paused instead of the frame on screen, and `play()` went on from there, so the picture froze until the clock caught up. Now the grid's clock moves to the frame the sound tile (or the first tile) steps to: after stepping 6 frames forward and 2 back, the position is exact (was 4 frames behind) and the next frame shows 36 to 55 ms after `play()` instead of 175 ms.
+
 ## 0.1.0 - 2026-10-30
 
 - First version of the engine: plays a folder of chunked recordings (HH-MM-SS files in YYYY-MM-DD day folders) as one timeline, crossing from file to file without a pause and keeping sound continuous.

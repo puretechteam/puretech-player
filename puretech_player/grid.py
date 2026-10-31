@@ -29,11 +29,14 @@ class Grid:
         self.on_state = None         # on_state(tile index, state, info)
         self.players = []
         self._lock = threading.Lock()
+        self._stepping = False       # paused by step(): the clock follows the frames the lead tile steps to
+        self._clock_lock = threading.Lock()
         for i, src in enumerate(sources):
             p = Player(src, ffmpeg=ffmpeg, view=views[i] if views else None,
                        presenter=presenters[i] if presenters else None, audio=(i == audio), skip_gaps=False,
                        clock=self.clock, threads=threads)
             p.on_state = lambda state, info, i=i: self._state(i, state, info)
+            p._on_shown = self._shown
             self.players.append(p)
         if audio is not None and 0 <= audio < len(self.players):
             self.clock.lead = self.players[audio]
@@ -47,7 +50,9 @@ class Grid:
         return self.clock.now()
 
     def play(self):
-        self.clock.mono.start()
+        with self._clock_lock:
+            self._stepping = False
+            self.clock.mono.start()
         for p in self.players:
             p.play()
 
@@ -57,7 +62,9 @@ class Grid:
             p.pause()
 
     def seek(self, wall_time):
-        self.clock.mono.set(wall_time)
+        with self._clock_lock:
+            self._stepping = False
+            self.clock.mono.set(wall_time)
         for p in self.players:
             p.seek(wall_time)
 
@@ -67,7 +74,11 @@ class Grid:
             p.set_speed(speed)
 
     def step(self, direction=1):
-        self.clock.mono.stop()
+        """One frame forward (+1) or back (-1) in every tile; pauses first. Once the lead tile (the one with the
+        sound, else the first) shows its new frame, the clock and position are that frame's time."""
+        with self._clock_lock:
+            self._stepping = True
+            self.clock.mono.stop()
         for p in self.players:
             p.step(direction)
 
@@ -81,6 +92,14 @@ class Grid:
     def close(self):
         for p in self.players:
             p.close()
+
+    def _shown(self, player, wall):
+        # render thread of `player`: a stepped frame of the lead tile is where play goes on from
+        if player is not (self.clock.lead or self.players[0]):
+            return
+        with self._clock_lock:
+            if self._stepping:
+                self.clock.mono.set(wall)
 
     def _state(self, i, state, info):
         if self.on_state:
